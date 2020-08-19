@@ -1,3 +1,6 @@
+
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
@@ -100,11 +103,16 @@ function generatePassword() {
    // ======= functions definition ======
    function getUserOptions() {
       // get user options and store in vars
+      prompt('how many characters would you like your password to be?');
       // check for length (it should be longer than 8 and shorter than 128)
       // check if lower
+     confirm('would you like to include lowercase?');
       // check if upper
+      confirm('would you like to include uppercase?');
       // check if special
+      confirm('would you like to include special characters?');
       // check if numeric
+      confirm('would you like to include numbers?');
       // check that at least one is true
         // else - alert user
     }
