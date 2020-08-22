@@ -1,25 +1,24 @@
 
 
 
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 //Arrays of characters 
-var specialCharacters = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
-// var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var specialCharacters = "@%+\\/'!#$^?:`)(}{][~-_.";
 var numericCharacters = "0123456789";
-var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowerCasedCharacters = "abcdefghijklmnopqrstuvwxyz";
+var upperCasedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var totalCharacters = [];
 
-//confirmation variables for usage of different characters
 
+// the text of password displayed
 function writePassword() {
-  // var password = generatePassword();
+ 
    var passwordText = document.querySelector("#password");
     passwordText.value =generatePassword();
 
 }
-//return a string
+
+//ask user prompts for criteria to write password
 function generatePassword() {
   var userPassword = "";
   selectedCharacters = "";
@@ -29,39 +28,38 @@ function generatePassword() {
 
      
         if (confirmLength >= 8) {
-             // check for length (it should be longer than 8 and shorter than 128)
+             // check for length (it should be longer than 8)
     var confirmLower = confirm("do you want lowercase numbers?");
     var confirmUpper = confirm("do you want uppercase numbers?");
     var confirmNumeric = confirm("do you want numeric?");
     var confirmspecialCharacter = confirm("do you want special characters?");
-      // check if lower
-      // check if upper
-      // check if special
-      // check if numeric
+      // check if lower , upper, special, numeric
+      
       // check that at least one is true
         // else - alert user
         if (confirmLower) {
-          selectedCharacters.concat(lowerCasedCharacters)
-          console.log(selectedCharacters);
+          selectedCharacters += lowerCasedCharacters
+          // console.log(selectedCharacters);
         }
         if (confirmUpper) {
-          selectedCharacters.concat(upperCasedCharacters)
+          selectedCharacters += upperCasedCharacters
         }
         if (confirmNumeric) {
           selectedCharacters += numericCharacters
         }
         if (confirmspecialCharacter) {
-          selectedCharacters.concat(specialCharacters)
+          selectedCharacters += specialCharacters
         }
         if (confirmLower === false && !confirmUpper) {
           alert ("please pick at least one character type");
           return;
         }
+        //randomize password using the length chosen by user stored in confirmLength
         for (i = 0; i < confirmLength; i++ ){
           userPassword += selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
 
         }
-        console.log(userPassword);
+        // console.log(userPassword); use this to check that everything is running correctly in console
           return userPassword;
         }
         else {
@@ -71,31 +69,11 @@ function generatePassword() {
     }
 // };
 
-    
-
-      // if lower
-        // push a random lower char to password
-        // add lowerCharsArray to userOptionalChars
-      // if upper
-        // push a random upper char to password
-        // add upperCharsArray to userOptionalChars
-      // if special
-        // push a random special char to password
-        // add specialCharsArray to userOptionalChars
-      // if numeric
-        // push a random numeric char to password
-        // add numericCharsArray to userOptionalChars
-      // for loop between start number of elemnts in password to the requested number of charactars
-      // mutate the array to a string
-      // return password string
-    
-   // ======= functions calls (start) ======
   
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// TO DO- change all arrays to strings and change concat to +=
 
 
 
